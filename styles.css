@@ -204,6 +204,19 @@ body {
     background-color: #333;
 }
 
+.download-button.tertiary {
+    background-color:transparent;   /* White fill */
+    color: #333;              /* Near-black label text */
+    border: 2px solid #a7a6a2;   /* Near-black border */
+}
+
+.download-button.tertiary:hover {
+    background-color: #d3d2cc;   /* Light warm gray on hover */
+}
+
+.download-button.tertiary:active {
+    background-color: #979797;   /* Light warm gray when clicked */
+}
 
 /* ===== DEV VERSION LABEL ===== */
 /* Fixed badge at top of page — not part of the pricing UI */
