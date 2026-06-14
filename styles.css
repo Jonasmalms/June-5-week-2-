@@ -1,148 +1,242 @@
+/* ============================================================
+   PRICING CARDS — Stylesheet overview
+   Warm neutral palette · Inter type · Two-card horizontal layout
+   ============================================================ */
+
+
+/* ===== RESET ===== */
+/* Removes browser defaults so spacing is fully controlled */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;              /* Clears default outer spacing on all elements */
+    padding: 0;             /* Clears default inner spacing on all elements */
+    box-sizing: border-box; /* Width/height include padding and border */
 }
+
+
+/* ===== PAGE BACKGROUND ===== */
+/* Full-viewport canvas — centers the card group vertically and horizontally */
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Inter with system-font fallbacks */
+
     background-color: #f7f7f4;
+    /* Page background — light warm gray */
+
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    justify-content: center;  /* Horizontal center */
+    align-items: center;      /* Vertical center */
+    min-height: 100vh;        /* At least full screen height */
+    padding: 20px;            /* Breathing room on small screens */
 }
+
+
+/* ===== CARD ROW ===== */
+/* Side-by-side layout for the two pricing cards */
 
 .cards-container {
     display: flex;
-    flex-direction: row;
-    gap: 24px;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: row;      /* Cards sit left → right */
+    gap: 24px;                /* Space between cards */
+    flex-wrap: nowrap;        /* Keep cards on one row */
+    justify-content: center;  /* Center the row on the page */
+    align-items: flex-start;  /* Align card tops — no vertical stretch */
 }
+
+
+/* ===== PRICING CARD ===== */
+/* Individual plan card — fixed width, content stacked top to bottom */
 
 .card {
     display: flex;
-    flex-direction: column;
-    min-height: 380px;
+    flex-direction: column;   /* Stack: header content → button at bottom */
+
+    min-height: 380px;        /* Equal minimum height for both cards */
     background-color: #f2f1ed;
-    border-radius: 4px;
-    padding: 16px;
-    width: 320px;
-    flex-shrink: 0;
+    /* Card fill — slightly darker warm gray than page bg */
+
+    border-radius: 4px;       /* Subtle corner rounding */
+    padding: 16px;            /* Inner padding on all sides */
+    width: 320px;             /* Fixed card width */
+    flex-shrink: 0;             /* Prevent cards from shrinking */
 }
+
+
+/* ===== CARD HEADER AREA ===== */
+/* Groups title, price, and features — no extra styles, just structure */
 
 .card-top {
     display: flex;
     flex-direction: column;
 }
 
+
+/* ===== PLAN NAME ===== */
+
 .card-title {
     font-size: 22px;
     line-height: 28px;
-    font-weight: 400;
-    color: #26251e;
-    margin-bottom: 8px;
+    font-weight: 400;         /* Regular weight — not bold */
+    color: #26251e;           /* Primary text — warm near-black */
+    margin-bottom: 8px;       /* Gap before price */
 }
+
+
+/* ===== PRICE ROW ===== */
+/* Container for amount + "/mo." — muted, baseline-aligned */
 
 .card-price {
     font-size: 20px;
     color: rgba(38, 37, 30, 0.5);
+    /* 50% opacity of primary text — de-emphasized */
+
     display: inline-flex;
-    align-items: baseline;
+    align-items: baseline;    /* Align "$20" and "/mo." on text baseline */
 }
 
+
+/* ===== PRICE AMOUNT ($20 / Free) ===== */
+
 .card-price-amount {
-    font-size: 22px;
+    font-size: 22px;          /* Matches plan title size */
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
+
+/* ===== BILLING PERIOD (/mo.) ===== */
+
 .card-price-period {
-    font-size: 14px;
+    font-size: 14px;          /* Smaller than the dollar amount */
     color: rgba(38, 37, 30, 0.5);
 }
 
+
+/* ===== FEATURE SECTION ===== */
+
 .card-content {
-    margin-bottom: 32px;
+    margin-bottom: 32px;      /* Space above the CTA button */
 }
+
+
+/* ===== "INCLUDES:" LABEL ===== */
 
 .includes-text {
     font-size: 16px;
     color: rgba(38, 37, 30, 0.5);
-    margin: 16px 0px;
+    margin: 16px 0px;         /* Vertical spacing around label */
 }
 
+
+/* ===== FEATURE LIST ===== */
+
 .features-list {
-    list-style: none;
+    list-style: none;         /* Hide default bullet points */
     padding: 0;
 }
 
 .features-list li {
     display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+    align-items: center;      /* Vertically center checkmark + text */
+    margin-bottom: 8px;       /* Space between list items */
     font-size: 16px;
-    color: #26251e;
+    color: #26251e;           /* Full-strength text for readability */
 }
+
+
+/* ===== CHECKMARK ICON ===== */
 
 .checkmark {
     color: #26251e;
     font-size: 14px;
-    margin-right: 10px;
+    margin-right: 10px;       /* Gap between ✓ and feature text */
     font-weight: 400;
 }
 
+
+/* ===== CTA BUTTON (base) ===== */
+/* Pill-shaped button — sits at card bottom via margin-top: auto */
+
 .download-button {
-    margin-top: auto;
-    width: fit-content;
+    margin-top: auto;         /* Pushes button to bottom of flex card */
+    width: fit-content;       /* Button only as wide as its label */
+
     background-color: #e6e5e0;
+    /* Default — light warm gray (secondary style) */
+
     border: none;
-    border-radius: 999px;
-    padding: 14px 24px;
+    border-radius: 999px;     /* Full pill shape */
+    padding: 14px 24px;       /* Vertical · horizontal inner spacing */
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500;         /* Medium weight label */
     color: #333;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    /* Smooth hover/active color change */
 }
 
+
+/* ===== BUTTON: HOVER & ACTIVE (secondary) ===== */
+
 .download-button:hover {
-    background-color: #D8D6CE;
+    background-color: #D8D6CE;  /* Slightly darker on hover */
 }
 
 .download-button:active {
-    background-color: #D8D6CE;
+    background-color: #D8D6CE;  /* Same as hover when clicked */
 }
 
+
+/* ===== BUTTON: PRIMARY VARIANT (Pro card) ===== */
+/* Dark filled pill — used for the main conversion action */
+
 .download-button.primary {
-    background-color: #111;
-    color: #fff;
+    background-color: #111;   /* Near-black fill */
+    color: #fff;              /* White label text */
 }
 
 .download-button.primary:hover {
-    background-color: #333;
+    background-color: #333;   /* Lighter black on hover */
 }
 
 .download-button.primary:active {
     background-color: #333;
 }
 
+.download-button.tertiary {
+    background-color:transparent;   /* White fill */
+    color: #333;              /* Near-black label text */
+    border: 2px solid #a7a6a2;   /* Near-black border */
+}
+
+.download-button.tertiary:hover {
+    background-color: #d3d2cc;   /* Light warm gray on hover */
+}
+
+.download-button.tertiary:active {
+    background-color: #979797;   /* Light warm gray when clicked */
+}
+
+/* ===== DEV VERSION LABEL ===== */
+/* Fixed badge at top of page — not part of the pricing UI */
+
 .page-label {
-    position: fixed;
+    position: fixed;          /* Stays at top while scrolling */
     top: 16px;
     left: 50%;
     transform: translateX(-50%);
+    /* Horizontally centered */
+
     font-size: 14px;
     color: #666;
     background: #fff;
     padding: 8px 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Soft drop shadow for floating effect */
 }
 
 .page-label strong {
-    color: #333;
+    color: #333;              /* "HTML version" — slightly darker emphasis */
 }
